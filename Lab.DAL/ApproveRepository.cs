@@ -28,6 +28,7 @@ namespace Lab.DAL
             {
                 {"99","成功"},
                 {"98","暫止"},
+                {"1","開立"},
             };
             return lookup[status];
         }
