@@ -12,6 +12,7 @@
                 {
                     this._adapter = new ApproveAdapter();
                 }
+
                 return this._adapter;
             }
             set => this._adapter = value;
@@ -24,7 +25,8 @@
             {
                 return "成功";
             }
-            return status;
+
+            return "暫止";
         }
     }
 }

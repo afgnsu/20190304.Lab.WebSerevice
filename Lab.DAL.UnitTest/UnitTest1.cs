@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Lab.DAL.UnitTest
 {
@@ -11,7 +10,24 @@ namespace Lab.DAL.UnitTest
         {
             var repository = new ApproveRepository();
             var status = repository.GetStatus();
-            Assert.AreEqual("成功",status);
+            Assert.AreEqual("成功", status);
+        }
+
+        [TestMethod]
+        public void 呼叫簽核狀態_預期得到暫止()
+        {
+            var repository = new ApproveRepository();
+            repository.Adapter = new FakeApproveAdapter();
+            var status = repository.GetStatus();
+            Assert.AreEqual("暫止", status);
+        }
+    }
+
+    public class FakeApproveAdapter : IApproveAdapter
+    {
+        public string GetStatus()
+        {
+            return "98";
         }
     }
 }
